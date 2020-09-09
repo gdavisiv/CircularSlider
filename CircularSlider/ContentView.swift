@@ -36,7 +36,7 @@ struct Home: View {
                     .stroke(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)), style: StrokeStyle(lineWidth: 55, lineCap: .round, lineJoin: .round))
                     .frame(width: size, height: size)
                 Circle()
-                    .trim(from: 0, to: 0.5)
+                    .trim(from: 0, to: progress)
                     .stroke(Color(#colorLiteral(red: 0, green: 0.8357462287, blue: 0, alpha: 1)), style: StrokeStyle(lineWidth: 55, lineCap: .round, lineJoin: .round))
                     .frame(width: size, height: size)
                 Circle()
@@ -45,5 +45,15 @@ struct Home: View {
                     .offset(x: size / 2)
             }
         }
+    }
+    
+    fun onDrag(value: DragGesture.Value){
+        //Calculate the Radians
+        let vector = CGVector(dx: value.location.x, dy: value.location.y)
+        
+        let radians = atan2(vector.dy, vector.dx)
+        
+        //Convert to an Angle
+        let angle = radians * 180 / .pi
     }
 }
