@@ -26,12 +26,18 @@ struct ContentView_Previews: PreviewProvider {
 struct Home: View {
     
     @State var size = UIScreen.main.bounds.width - 100
+    @State var progress : CGFloat = 0
+    @State var angle : Double = 0
     
     var body: some View {
         VStack{
             ZStack{
                 Circle()
                     .stroke(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)), style: StrokeStyle(lineWidth: 55, lineCap: .round, lineJoin: .round))
+                    .frame(width: size, height: size)
+                Circle()
+                    .trim(from: 0, to: 0.5)
+                    .stroke(Color(#colorLiteral(red: 0, green: 0.8357462287, blue: 0, alpha: 1)), style: StrokeStyle(lineWidth: 55, lineCap: .round, lineJoin: .round))
                     .frame(width: size, height: size)
                 Circle()
                     .fill(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
