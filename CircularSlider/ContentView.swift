@@ -47,15 +47,17 @@ struct Home: View {
         }
     }
     
-    fun onDrag(value: DragGesture.Value){
+    func onDrag(value: DragGesture.Value){
         //Calculate the Radians
         let vector = CGVector(dx: value.location.x, dy: value.location.y)
         
-        let radians = atan2(vector.dy, vector.dx)
+        let radians = atan2(vector.dy - 27.5, vector.dx - 27.5)
         
         //Convert to an Angle
-        let angle = radians * 180 / .pi
+        var angle = radians * 180 / .pi
         
+        //Simple technique from 0->360
+        //ex: 360 - 60 = 300
         if angle < 0{angle = 360 + angle}
         
         withAnimation(Animation.linear(duration: 0.15)){
