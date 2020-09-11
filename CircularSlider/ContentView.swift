@@ -55,5 +55,11 @@ struct Home: View {
         
         //Convert to an Angle
         let angle = radians * 180 / .pi
+        
+        if angle < 0{angle = 360 + angle}
+        
+        withAnimation(Animation.linear(duration: 0.15)){
+            self.angle = Double(angle)
+        }
     }
 }
