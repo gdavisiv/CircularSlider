@@ -43,6 +43,8 @@ struct Home: View {
                     .fill(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
                     .frame(width: 55, height: 55)
                     .offset(x: size / 2)
+                    .rotationEffect(.init(degrees: angle))
+                    .gesture(DragGesture().onChanged(onDrag(value:)))
             }
         }
     }
@@ -51,6 +53,10 @@ struct Home: View {
         //Calculate the Radians
         let vector = CGVector(dx: value.location.x, dy: value.location.y)
         
+        //ATan2 will give you values between -180 to 180, you
+        //Also will need to remove the drag gesure size of 55
+        //so divide 55/2 = 27.5
+        //55 is the size of the Drag Circle
         let radians = atan2(vector.dy - 27.5, vector.dx - 27.5)
         
         //Convert to an Angle
