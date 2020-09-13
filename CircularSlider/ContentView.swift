@@ -57,6 +57,7 @@ struct Home: View {
         //Also will need to remove the drag gesure size of 55
         //so divide 55/2 = 27.5
         //55 is the size of the Drag Circle
+        //asdlfkjjsadfoiu
         let radians = atan2(vector.dy - 27.5, vector.dx - 27.5)
         
         //Convert to an Angle
