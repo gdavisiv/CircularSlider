@@ -57,7 +57,6 @@ struct Home: View {
         //Also will need to remove the drag gesure size of 55
         //so divide 55/2 = 27.5
         //55 is the size of the Drag Circle
-        //asdlfkjjsadfoiu
         let radians = atan2(vector.dy - 27.5, vector.dx - 27.5)
         
         //Convert to an Angle
@@ -68,6 +67,10 @@ struct Home: View {
         if angle < 0{angle = 360 + angle}
         
         withAnimation(Animation.linear(duration: 0.15)){
+            
+            //gress along the circle
+            let progress = angle / 360
+            self.progress = progress
             self.angle = Double(angle)
         }
     }
