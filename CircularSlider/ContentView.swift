@@ -32,17 +32,28 @@ struct Home: View {
     var body: some View {
         VStack{
             ZStack{
+                //Base Circle Style
                 Circle()
                     .stroke(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)), style: StrokeStyle(lineWidth: 55, lineCap: .round, lineJoin: .round))
                     .frame(width: size, height: size)
+                
+                //Green Progression Line
                 Circle()
                     .trim(from: 0, to: progress)
                     .stroke(Color(#colorLiteral(red: 0, green: 0.8357462287, blue: 0, alpha: 1)), style: StrokeStyle(lineWidth: 55, lineCap: .round, lineJoin: .round))
                     .frame(width: size, height: size)
+                    .rotationEffect(.init(degrees: -90))
+                
+                //Inner Curved Starting Point
+                
+                
+                //Drag Circle
                 Circle()
                     .fill(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
                     .frame(width: 55, height: 55)
                     .offset(x: size / 2)
+                    
+                    //Adding Drag Gesture
                     .rotationEffect(.init(degrees: angle))
                     .gesture(DragGesture().onChanged(onDrag(value:)))
             }
@@ -68,7 +79,7 @@ struct Home: View {
         
         withAnimation(Animation.linear(duration: 0.15)){
             
-            //gress along the circle
+            //progress along the circle
             let progress = angle / 360
             self.progress = progress
             self.angle = Double(angle)
