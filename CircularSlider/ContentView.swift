@@ -45,17 +45,21 @@ struct Home: View {
                     .rotationEffect(.init(degrees: -90))
                 
                 //Inner Curved Starting Point
-                
+                Circle()
+                    .fill(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)))
+                    .frame(width: 55, height: 55)
+                    .offset(x: size / 2)
+                    .rotationEffect(.init(degrees: -90))
                 
                 //Drag Circle
                 Circle()
                     .fill(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
                     .frame(width: 55, height: 55)
                     .offset(x: size / 2)
-                    
-                    //Adding Drag Gesture
                     .rotationEffect(.init(degrees: angle))
+                    //Adding Drag Gesture
                     .gesture(DragGesture().onChanged(onDrag(value:)))
+                    .rotationEffect(.init(degrees: -90))
             }
         }
     }
