@@ -15,6 +15,6 @@ This project is a Demo to better understand the new Swift UI Syntax, and Design 
 
 ### Prerequisites
 
-xCode 12.0.1
+xCode 12.0 Beta
 
 https://developer.apple.com/xcode/swiftui/
