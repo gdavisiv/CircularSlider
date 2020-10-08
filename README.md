@@ -2,7 +2,7 @@
 <img src="https://github.com/gdavisiv/Vivid-UI---DesignCode/blob/UI-Updates/DesignCode_1/Assets.xcassets/swiftuiLogo.png" height="100" width="100">
 </p>
 
-# iOS Demo App with a Circular Slider
+# iOS Fitness Demo App
 
 This project is a Demo to better understand the new Swift UI Syntax, and Design Tools. 
 
